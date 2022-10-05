@@ -25,13 +25,25 @@ const Header = () => {
                     <FontAwesomeIcon icon={faBurger} />
                 </div>
                 <div className="navbar-end hidden lg:flex">
-                    <ul className="menu menu-horizontal p-0 text-slate-100 gap-4">
+                    <ul className="menu menu-horizontal p-0 text-slate-100 gap-5 text-lg ">
                     <NavLink
                     to="/home"
+                    className={({ isActive }) =>
+              isActive ? 'text-orange-400 border-b-2 border-logo-color': undefined
+            }
                     >Home</NavLink>
-                            <NavLink to='/menu' >Menu</NavLink>
-                            <NavLink to='/offers'>Offers</NavLink>
-                            <NavLink to= '/rewards' >Rewards</NavLink>
+
+                            <NavLink to='/menu' className={({ isActive }) =>
+              isActive ? 'text-orange-400 border-b-2 border-logo-color': undefined
+            } >Menu</NavLink>
+
+                            <NavLink to='/offers' className={({ isActive }) =>
+              isActive ? 'text-orange-400 border-b-2 border-logo-color': undefined
+            }>Offers</NavLink>
+
+                            <NavLink to= '/rewards' className={({ isActive }) =>
+              isActive ? 'text-orange-400 border-b-2 border-logo-color': undefined
+            } >Rewards</NavLink>
                     </ul>
                 </div> 
             </div>
