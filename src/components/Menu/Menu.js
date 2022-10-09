@@ -5,7 +5,7 @@ import CountryFood from '../CountryFood/CountryFood';
 
 const Menu = () => {
     return (
-        <div>
+        <div >
             <div className='bg-logo-text-color py-8'>
                 <p className='text-3xl font-semibold '>Bon appetit!</p>
             </div>

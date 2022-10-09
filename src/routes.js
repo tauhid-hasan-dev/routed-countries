@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Catagories from "./components/Catagories/Catagories";
+import CatagoryFoods from "./components/CatagoryFoods/CatagoryFoods";
 import Countries from "./components/Countries/Countries";
 import CountryFoods from "./components/CountryFoods/CountryFoods";
 import Home from "./components/Home/Home";
@@ -16,16 +17,22 @@ export const router = createBrowserRouter([
         {path: '/', element:<Home></Home> },
         {path: '/home', element:<Home></Home> },
         {path: '/menu', element:<Menu></Menu> },
+
         {path: '/menu/countryfood', 
         loader: async()=> fetch('https://www.themealdb.com/api/json/v1/1/list.php?a=list'),
-        element: <Countries></Countries>}, 
+        element: <Countries></Countries>},
+
         {path: '/menu/countryfood/:countryName', 
         loader: async({params})=>{
             console.log(params.countryName);
             return fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${params.countryName}`)
         },
         element:<CountryFoods></CountryFoods>},
-        {path: '/menu/catagoryfood', element: <Catagories></Catagories>}, 
+
+        {path: '/menu/catagoryfood',
+         loader: async()=> fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list'),
+         element: <Catagories></Catagories>}, 
+
         {path: '/offers', element:<Offers></Offers> },
         {path: '/rewards', element:<Rewards></Rewards> },  
     ]
