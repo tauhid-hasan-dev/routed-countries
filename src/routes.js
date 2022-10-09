@@ -32,7 +32,11 @@ export const router = createBrowserRouter([
         {path: '/menu/catagoryfood',
          loader: async()=> fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list'),
          element: <Catagories></Catagories>}, 
-        {path: '/menu/catagoryfood/beef', 
+
+        {path: '/menu/catagoryfood/:catagoryName', 
+        loader: async({params})=> {
+            return fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.catagoryName}`)
+        },
         
         element: <CatagoryFoods></CatagoryFoods> },
 
