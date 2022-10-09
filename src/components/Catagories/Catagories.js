@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import CatagoryList from '../CatagoryList/CatagoryList';
 
 const Catagories = () => {
@@ -10,7 +10,7 @@ const Catagories = () => {
               <p className='text-lg lg:text-2xl font-bold p-10'>Total Item Found: {meals.length}</p>
             <div className='px-20 flex flex-col gap-4 w-[50%]'>
                 {
-                    meals.map((meal, idx) => <CatagoryList  key={idx} meal={meal} ></CatagoryList>)
+                    meals.map((meal, idx) => <Link to='/menu/catagoryfood/beef'><CatagoryList  key={idx} meal={meal} ></CatagoryList></Link>)
                 }
             </div>
         </div>
